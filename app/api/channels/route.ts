@@ -24,26 +24,26 @@ export async function POST(request: Request) {
   return NextResponse.json(channel);
 }
 
-export async function UPDATE(request: Request) {
-  const currentUser = await getCurrentUser();
+// export async function UPDATE(request: Request) {
+//   const currentUser = await getCurrentUser();
 
-  if (!currentUser) {
-    return NextResponse.error();
-  }
+//   if (!currentUser) {
+//     return NextResponse.error();
+//   }
   
-  const { name, handle, imageSrc, channelId } = await request.json();
+//   const { name, handle, imageSrc, channelId } = await request.json();
 
-  const channel = await db.channel.update({
-    where: {
-      id: channelId
-    },
-    data: {
-      name,
-      handle,
-      imageSrc,
-      userId: currentUser.id,
-    },
-  });
+//   const channel = await db.channel.update({
+//     where: {
+//       id: channelId
+//     },
+//     data: {
+//       name,
+//       handle,
+//       imageSrc,
+//       userId: currentUser.id,
+//     },
+//   });
 
-  return NextResponse.json(channel);
-}
+//   return NextResponse.json(channel);
+// }
